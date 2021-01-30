@@ -49,3 +49,99 @@ export const Profile = styled.div`
     }
   }
 `;
+
+export const Content = styled.main`
+  max-width: 1120px;
+  margin: 64px auto;
+  display: flex;
+`;
+
+export const Schedule = styled.div`
+  flex: 1;
+  margin-right: 120px;
+
+  h1 {
+    font-size: 36px;
+  }
+
+  p {
+    margin-top: 8px;
+    color: #ff9000;
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+  }
+
+  span + span::before {
+    content: '';
+    width: 1px;
+    height: 16px;
+    background: #ff9000;
+    margin: 0 8px;
+  }
+`;
+
+export const NextAppointment = styled.div`
+  margin-top: 64px;
+
+  > strong {
+    color: #999591;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  div {
+    background: #3e3b47;
+    padding: 16px 24px;
+    border-radius: 10px;
+    margin-top: 24px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    &::before {
+      position: absolute;
+      height: 80%;
+      width: 3px;
+      left: 0;
+      content: '';
+      background: #ff9000;
+      border-bottom-right-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    img {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+    }
+
+    strong {
+      margin-left: 24px;
+      color: #f4ede8;
+    }
+
+    span {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      color: #999591;
+
+      svg {
+        color: #ff9000;
+        margin-right: 8px;
+      }
+    }
+  }
+`;
+
+export const Calendar = styled.aside`
+  width: 380px;
+`;
