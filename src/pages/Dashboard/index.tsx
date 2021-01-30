@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { FiClock, FiPower } from 'react-icons/fi';
 
@@ -13,9 +13,12 @@ import {
   Schedule,
   NextAppointment,
   Calendar,
+  Appointment,
+  Section,
 } from './styles';
 
 const Dashboard: React.FC = () => {
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const { signOut, user } = useAuth();
 
   return (
@@ -50,20 +53,62 @@ const Dashboard: React.FC = () => {
           <NextAppointment>
             <strong>Atendendimento a seguir</strong>
             <div>
-              <img
-                src="https://avatars.githubusercontent.com/u/31122067?s=460&u=2ac8c143daf52474c96079589b17fe2ae1d2c1ce&v=4"
-                alt="SenhorBiscoito"
-              />
+              <img src={user.avatar_url} alt={user.name} />
 
-              <strong>SenhorBiscoito</strong>
+              <strong>{user.name}</strong>
               <span>
                 <FiClock />
                 08:00
               </span>
             </div>
           </NextAppointment>
-        </Schedule>
+          <Section>
+            <strong>Manhã</strong>
 
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+
+              <div>
+                <img src={user.avatar_url} alt={user.name} />
+
+                <strong>{user.name}</strong>
+              </div>
+            </Appointment>
+
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+
+              <div>
+                <img src={user.avatar_url} alt={user.name} />
+
+                <strong>{user.name}</strong>
+              </div>
+            </Appointment>
+          </Section>
+
+          <Section>
+            <strong>Tarde</strong>
+
+            <Appointment>
+              <span>
+                <FiClock />
+                18:00
+              </span>
+
+              <div>
+                <img src={user.avatar_url} alt={user.name} />
+
+                <strong>{user.name}</strong>
+              </div>
+            </Appointment>
+          </Section>
+        </Schedule>
         <Calendar />
       </Content>
     </Container>
