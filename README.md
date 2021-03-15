@@ -1,46 +1,184 @@
-# Getting Started with Create React App
+<h1 align="center">
+	<img alt="GoBarber" src=".github/logo.svg" width="200px" />
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/SenhorBiscoito/gobarber-back">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/SenhorBiscoito/gobarber-back">
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/SenhorBiscoito/gobarber-back">
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/SenhorBiscoito/gobarber-back">
+</p>
 
-## Available Scripts
+<img alt="Mockup" src=".github/mockup_gobarber.png">
 
-In the project directory, you can run:
+## 💥 Gobarber | Gostack 11
 
-### `yarn start`
+Versão atualizada do GoBarber com mudanças desde o layout às tecnologias utilizadas. A aplicação segue o mesmo conceito da versão anterior, permitindo gerenciar usuários administradores, clientes, agendamentos e outras funcionalidades em um ambiente de barbearia.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Nesta versão, foram aplicados padrões de arquitetura e boas práticas de programação como **DDD**, **SOLID**, **Service Pattern** e **Repository Pattern**. Durante todo o desenvolvimento foi utilizado **TDD** com a ferramenta *Jest*.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Índice
+- ⚙ [Tecnologias utilizadas](#-tecnologias)
+- 🚀 [Funcionalidades](#-funcionalidades)
+- 💻 [Instruções para o back end](#-instruções-para-o-back-end)
+- 💻 [Instruções para o front end](#-instruções-para-o-front-end)
+- 📱 [Instruções para o mobile](#-instruções-para-o-mobile)
+- 🐞 [Executandos testes](#-executando-testes)
 
-### `yarn test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ⚙ Tecnologias
+  - **Back end**
+    - [NodeJS](https://nodejs.org/en/)
+    - [express](https://expressjs.com/pt-br/)
+    - [typescript](https://www.typescriptlang.org/)
+    - [typeorm](https://typeorm.io/)
+    - [postgres](https://www.postgresql.org/)
+    - [mongodb](https://www.mongodb.com/)
+    - [redis](https://redis.io/)
+    - [jest/ts-jest](https://jestjs.io/)
+    - [uuidv4](https://www.npmjs.com/package/uuidv4)
+    - [date-fns](https://date-fns.org/)
+    - [multer](https://www.npmjs.com/package/multer)
+    - [celebrate/joi]()
+    - [dotenv]()
+    - [class-transformer]()
+    - [rate-limiter-flexible]()
+    - [Amazon SES](https://aws.amazon.com/pt/ses/)
+    - [Amazon S3](https://aws.amazon.com/pt/s3/?sc_channel=PS&sc_campaign=acquisition_BR&sc_publisher=google&sc_medium=english_s3_b&sc_content=s3_e&sc_detail=amazon%20s3&sc_category=s3&sc_segment=89108864428&sc_matchtype=e&sc_country=BR&s_kwcid=AL!4422!3!89108864428!e!!g!!amazon%20s3&ef_id=CjwKCAjw5cL2BRASEiwAENqAPgGlCjev7lISzLorFwcq0coRS7IXGWkuVq90tELVhk8Zdli-4Kq7rBoCT34QAvD_BwE:G:s)
 
-### `yarn build`
+  - **Front end**
+    - [React](https://reactjs.org/)
+    - [Typescript](https://www.typescriptlang.org/)
+    - [Axios](https://github.com/axios/axios)
+    - [Styled-components](https://styled-components.com/)
+    - [Polished](https://polished.js.org/)
+    - [React-spring](https://www.react-spring.io/)
+    - [Yup](https://www.npmjs.com/package/yup)
+    - [Date-fns](https://date-fns.org/)
+    - [React-day-picker](https://www.npmjs.com/package/react-day-picker)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  - **Mobile**
+    - [React Native](https://reactnative.dev/)
+    - [React-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
+    - [Unform](https://github.com/Rocketseat/unform)
+    - [Axios](https://github.com/axios/axios)
+    - [Styled-components](https://styled-components.com/)
+    - [Yup](https://www.npmjs.com/package/yup)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  - **Outras tecnologias**
+    - [Docker](https://www.docker.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `yarn eject`
+## 🚀 Funcionalidades
+- Recuperação de senha
+  - **Requisitos Funcionais**
+    - O usuário deve poder recuperar sua senha informando o seu e-mail;
+    - O usuário deve receber um e-mail com instruções de recuperação de senha;
+    - O usuário deve poder resetar sua senha
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  - **Requisitos Não-Funcionais**
+    - Utlizar ethereal para testar envios em ambiente de desenvolvimento;
+    - Utilizar Amazon SES para envios em produção;
+    - O envio de e-mails deve acontecer em segundo plano (background job);
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  - **Regras de Negócios**
+    - O link enviado por e-mail para resetar a senha deve expirar em 2h;
+    - O usuário precisa confirmar a nova senha ao resetar;
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Atualização do perfil
+  - **Requisitos Funcionais**
+    - O usuário deve poder atualizar seu nome, e-mail e senha
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  - **Regras de Negócios**
+    - O usuário não pode alterar seu e-mail para um já utilizado por outro usuário;
+    - Para atualizar sua senha, o usuário deve informar a senha antiga;
 
-## Learn More
+- Painel do prestador
+  - **Requisitos Funcionais**
+    - O usuário deve poder listar seus agendamentos de um dia específico;
+    - O prestador deve receber uma notificação sempre que houver um novo agendamento;
+    - O prestador deve poder visualizar as notificações não lidas;
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  - **Requisitos Não-Funcionais**
+    - Os agendamentos do prestador no dia devem ser armazenados em cache;
+    - As notificações do prestador devem ser armazenadas no MongoDB;
+    - As notificações do prestador devem ser enviadas em tempo-real utilizando Socket.io;
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  - **Regras de Negócios**
+    - A notificação deve ter um status de lida ou não-lida para que o prestador possa controlar;
+
+- Agendamento de serviços
+  - **Requisitos Funcionais**
+    - O usuário deve poder listar todos os prestadores de serviços cadastrados;
+    - O usuário deve poder listar os dias, com pelo menos um horário disponível, de um prestador em um mês específico;
+    - O usuário deve poder listar os horários disponíveis em um dia específico de um prestador;
+    - O usuário deve poder realizar um novo agendamento com um prestador;
+
+  - **Requisitos Não-Funcionais**
+    - A listagem de prestadores deve ser armazenada em cache;
+
+  - **Regras de Negócios**
+    - Cada agendamento deve duar 1h exatamente;
+    - Os agendamentos devem estar disponíveis entre 8h às 18h (primeiro às 8h e último às 17h);
+    - O usuário não pode agendar em um horário já ocupado;
+    - O usuário não pode agendar em um horário que já passou;
+    - O usuário não pode agendar serviços consigo mesmo;
+
+---
+## 💻 Instruções para o back end
+
+  Começaremos criando as instâncias dos nossos bancos de dados. Para esse projeto, o **docker** foi utilizado. Abaixo, seguem os comandos para criar os containers e inicializar as instâncias:
+
+  ```bash
+    # Criando container com instância do postgres
+    docker run --name database -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
+
+    # Criando container com instância do mongo
+    docker run --name mongodb -p 27017:27017 -d -t mongo
+
+    # Criando container com instância do redis
+    docker run --name redis -p 6379:6379 -d -t redis:alpine
+
+    # Inicializando as instâncias
+    docker start database mongodb redis
+  ```
+
+  Primeiramente, você precisará criar um arquivo contendo as informações de acesso ao seu banco de dados. Esta aplicação foi desenvolvida utilizando o **Postgres** e **MongoDB**. Crie um arquivo chamado *ormconfig.json* na pasta `backend` e preencha conforme o arquivo-modelo *ormconfig.example.json*. Lembre-se, antes de rodar as migrations, de criar o banco de dados e informar o nome da sua base no arquivo *ormconfig.json*.
+
+  ```bash
+    # Baixar as dependências
+    yarn
+
+    # Executar as migrations
+    yarn typeorm migration:run
+
+    # Inicializar o servidor de desenvolvimento
+    yarn dev:server
+  ```
+
+  Será necessário criar também um arquivo *.env*, que conterá as variáveis de ambiente. Use *.env.example* como modelo.
+
+---
+
+## 💻 Instruções para o front end
+
+  Após executar o passo anterior e garantir que o back end está rodando, você poderá inicializar o front end:
+
+  ```bash
+    # Baixar as dependências
+    yarn
+
+    # Inicializar a aplicação
+    yarn start
+  ```
+
+## 🐞 Executando testes
+
+  ```bash
+    # Executando testes
+    yarn test
+  ```
+
+---
